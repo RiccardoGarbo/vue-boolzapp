@@ -1,6 +1,39 @@
 body {
-    height: 100vh;
+
     background: linear-gradient(to bottom,
             #009688 20%,
             #D9DBD5 20% 80%);
+}
+
+#header-left {
+    height: 80px;
+}
+
+#notification {
+    background-color: #8EDAFC;
+}
+
+.fa-bell-slash {
+    color: #8EDAFC;
+}
+
+#icon-left .fa-solid {
+    color: #B1B1B1;
+}
+
+#my-contacts {
+    height: 80px;
+}
+
+#contacts div {
+    height: 80px;
+}
+
+#contacts {
+    background-color: white;
+    overflow-y: scroll;
+}
+
+#root {
+    height: 100vh
 }
