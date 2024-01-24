@@ -10,9 +10,8 @@ body {
 }
 
 .container {
-    height: 750px
+    height: calc(100% - 30px);
 }
-
 
 header {
     height: 80px;
@@ -42,7 +41,6 @@ header {
     background-color: white;
     overflow-y: scroll;
     height: 500px;
-
 }
 
 #root {
@@ -52,4 +50,24 @@ header {
 #chat {
     height: 600px;
     overflow-y: scroll;
+}
+
+
+/*Messagges*/
+#my-mess {
+    background-color: #D5F9BA;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+
+}
+
+#contact-mess {
+    background-color: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 50px;
 }
