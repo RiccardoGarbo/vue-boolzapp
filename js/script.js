@@ -222,9 +222,18 @@ app = createApp({
                 text: this.newMessageText,
                 status: 'sent'
             }
-            this.activeContactMessages.push(newMessage);
+            this.activeContactMessages.push(newMessage)
             this.newMessageText = ' ';
+            setTimeout(() => {
+                newMessageReceived = {
+                    id: new Date().toISOString,
+                    date: new Date().toLocaleDateString,
+                    text: 'Ok',
+                    status: 'received'
+                }
+                this.activeContactMessages.push(newMessageReceived);
 
+            }, 1000)
         }
 
 
