@@ -2,8 +2,9 @@ const { createApp } = Vue
 app = createApp({
     data() {
         return {
+
             user: {
-                name: 'Nome Utente',
+                name: 'Nome utente',
                 avatar: '_io'
             },
             contacts: [
@@ -189,8 +190,33 @@ app = createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            //Settato un id fisso
+            currentId: 1
         }
+    },
+    computed: {
+        // Tramite una funzione vediamo il contatto corrente
+        activeContact() {
+            return this.contacts.find(contact => {
+                if (contact.id === this.currentId) return true;
+                else return false
+            })
+        },
+        // Vediamo i messaggi correnti
+        activeContactMessages() {
+            return this.activeContact.messages
+        }
+
+
+    },
+    methods: {
+
+
     }
-})
-app.mount('#root')
+}),
+    app.mount('#root')
+
+
+
+

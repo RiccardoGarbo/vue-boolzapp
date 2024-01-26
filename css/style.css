@@ -3,14 +3,14 @@
 }
 
 body {
-    background: linear-gradient(to bottom,
+    background-image: linear-gradient(to bottom,
             #009688 20%,
-            #D9DBD5 20% 80%);
-
+            #D9DBD5 20%);
+    height: 100vh
 }
 
 .container {
-    height: calc(100% - 30px);
+    height: 90%;
 }
 
 header {
@@ -41,10 +41,7 @@ header {
     background-color: white;
     overflow-y: scroll;
     height: 500px;
-}
 
-#root {
-    height: 100vh;
 }
 
 #chat {
@@ -52,19 +49,21 @@ header {
     overflow-y: scroll;
 }
 
-
 /*Messagges*/
-#my-mess {
+
+/*Classi per importare colore e posizione dei messaggi*/
+.sent {
     background-color: #D5F9BA;
     width: 250px;
     padding: 20px;
     border-radius: 10px;
     margin-right: 50px;
     margin-bottom: 20px;
+    align-self: flex-end;
 
 }
 
-#contact-mess {
+.received {
     background-color: white;
     width: 250px;
     padding: 20px;

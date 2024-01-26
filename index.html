@@ -23,17 +23,17 @@
 </head>
 
 <body>
-    <div id="root">
+    <div id="root" class="h-100">
         <div class="container p-0 bg-body-secondary my-3">
-            <div class="row">
+            <div class="row h-100">
                 <!--LEFT SIDE-->
-                <div class="col-4 ">
+                <div class="col-4 h-100">
                     <!--HEADER LEFT SIDE-->
                     <header id="header-left" class="d-flex justify-content-between p-2">
                         <div id="my-icon" class="d-flex">
                             <img id="my-icon" class="img-fluid rounded-circle" src="img/avatar_io.jpg" alt="">
                             <div class="d-flex align-items-center">
-                                <h5 id="my-name">Nome Utente</h5>
+                                <h5 id="my-name">{{user.name}}</h5>
                             </div>
                         </div>
                         <div id="icon-left" class="d-flex align-items-center gap-3 fs-4">
@@ -51,6 +51,7 @@
                                 <a href="">Attiva notifiche desktop</a>
                             </div>
                     </section>
+                    <!--SEARCH BAR-->
                     <section id="search-bar">
                         <div class="input-group mb-1 p-2">
                             <span class="input-group-text" id="basic-addon1"><i
@@ -60,8 +61,9 @@
                     </section>
                     <!--CONTACTS-->
                     <section id="contacts">
-                        <div v-for="contact in contacts" class="d-flex border-bottom p-2">
-                            <img id="id-contat" class="img-fluid rounded-circle"
+                        <div v-for="contact in contacts" role="button" @click="currentId = contact.id" :key="contact.id"
+                            class="d-flex border-bottom p-2">
+                            <img id="id-contact" class="img-fluid rounded-circle"
                                 :src="`img/avatar${contact.avatar}.jpg`" alt="">
                             <h5 id="contact-name">{{contact.name}}</h5>
                         </div>
@@ -69,14 +71,14 @@
                     </section>
                 </div>
                 <!--RIGHT SIDE-->
-                <div class="col-8 ">
+                <div class="col-8  h-100">
                     <!--HEADER RIGHT SIDE-->
                     <header id="header-right" class="d-flex justify-content-between p-2">
                         <div class="d-flex">
                             <img id="contact-icon" class="img-fluid rounded-circle" src="img/avatar_1.jpg" alt="">
                             <div class=" align-items-center">
-                                <h5 id="my-name">Michele</h5>
-                                <span>Ultimo accesso oggi alle</span>
+                                <h5>{{activeContact.name}}</h5>
+                                <span>Ultimo accesso oggi alle:</span>
                             </div>
                         </div>
                         <div id="icon-left" class="d-flex align-items-center gap-3 fs-4 px-3">
@@ -87,9 +89,10 @@
                     </header>
                     <!--CHAT-->
                     <section id="chat" style="background-image: url(img/mine.jpg) ;">
-                        <div id="messagges" class="d-flex flex-column py-5">
-                            <span id="my-mess" class="align-self-end">Prova messaggio!</span>
-                            <span id="contact-mess" class="">Prova messaggio!</span>
+                        <div id="messages" v-for="message in activeContactMessages" class="d-flex flex-column py-5 ">
+                            <span :class="message.status">
+                                {{message.text}}
+                            </span>
                         </div>
                     </section>
                     <!--FOOTER RIGHT SIDE-->
