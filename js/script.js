@@ -192,7 +192,10 @@ app = createApp({
                 }
             ],
             //Settato un id fisso
-            currentId: 1
+            currentId: 1,
+            newMessageText: ''
+
+
         }
     },
     computed: {
@@ -211,6 +214,19 @@ app = createApp({
 
     },
     methods: {
+        //Funzione per aggiungere un nuovo messaggio
+        getNewMessages() {
+            newMessage = {
+                id: new Date().toISOString,
+                date: new Date().toLocaleDateString,
+                text: this.newMessageText,
+                status: 'sent'
+            }
+            this.activeContactMessages.push(newMessage);
+            this.newMessageText = ' ';
+
+        }
+
 
 
     }
